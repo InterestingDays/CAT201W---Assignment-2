@@ -1,16 +1,20 @@
-# React + Vite
+# ApexSoft Studio (Group 7)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**CAT201W - Integrated Software Development Workshop (Assignment 2)**
 
-Currently, two official plugins are available:
+This is the official repository for **ApexSoft Studio**, a modern corporate single-page application (SPA) built for a software consultancy firm. The project demonstrates responsive web design, component-based architecture, and automated deployment.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **Live Demo:** [https://apexsoftstudio.netlify.app](https://apexsoftstudio.netlify.app)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 👥 Group Members (Team Composition)
 
-## Expanding the ESLint configuration
+| Name | Role & Contribution |
+| :--- | :--- |
+| **TANG SHENGYAO** | **Project Lead & Backend Architect**<br>CI/CD Pipeline (Netlify), Data Structure, QA Testing |
+| **LIAO YIANG** | **Lead Frontend Engineer**<br>React Architecture, Mobile Logic, Performance Optimization |
+| **ZHOU WEIBO** | **UI/UX Designer**<br>Visual Design, Tailwind Styling, Content Strategy |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
