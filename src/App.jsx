@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Menu, X } from 'lucide-react';
 import { companyInfo, team, projects } from './data';
 
 // Import local video files
@@ -46,6 +47,9 @@ const detailedServices = [
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
 
+  // Control the open/close status of the phone menu
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Thank you, ${formData.name}! We will contact you soon.`);
@@ -56,7 +60,7 @@ function App() {
       {/* 1. Navigation Bar */}
       <nav className="fixed w-full z-50 bg-[#0f172a]/90 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="#home" className="flex items-center gap-3 group cursor-pointer">
+          <a href="#home" className="flex items-center gap-3 group cursor-pointer z-50">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/20 group-hover:scale-110 transition-transform">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6 text-white">
                 <path fillRule="evenodd" d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 01.75.75c0 5.056-2.383 9.555-6.084 12.436h.001c-1.226 1.037-2.685 1.844-4.282 2.373-2.11.699-4.48.678-6.635-.135-.266-.102-.462-.338-.518-.618l-.764-3.835a.75.75 0 00-.735-.603l-3.835-.764a.75.75 0 01-.618-.518c-.814-2.155-.834-4.525-.135-6.635.53-1.597 1.336-3.056 2.373-4.282V7.584zm-1.743 4.673a.75.75 0 00.735.603l3.835.764a.75.75 0 01.618.518c.814 2.155.834 4.525.135 6.635-.53 1.597-1.336 3.056-2.373 4.282v-.001c-2.88-3.702-7.38-6.085-12.435-6.085a.75.75 0 01-.75-.75c0-5.056 2.383-9.555 6.084-12.436h-.001c1.226-1.037 2.685-1.844 4.282-2.373 2.11-.699 4.48-.678 6.635.135.266.102.462.338.518.618l.764 3.835z" clipRule="evenodd" />
@@ -66,6 +70,8 @@ function App() {
               {companyInfo.name}
             </h1>
           </a>
+          
+          {/* Computer Menu (Hidden on mobile) */}
           <div className="hidden md:flex items-center space-x-8 text-sm font-bold">
             <a href="#services" className="hover:text-indigo-400 transition">Services</a>
             <a href="#projects" className="hover:text-indigo-400 transition">Work</a>
@@ -73,7 +79,60 @@ function App() {
             <a href="#team" className="hover:text-indigo-400 transition">Team</a>
             <a href="#contact" className="px-5 py-2.5 bg-indigo-600 rounded-full hover:bg-indigo-500 transition text-white shadow-lg shadow-indigo-500/30">Contact Us</a>
           </div>
+
+          {/* Mobile hamburger button (Visible ONLY on mobile) */}
+          <div className="md:hidden">
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-white p-2 focus:outline-none hover:text-indigo-400 transition"
+            >
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
+
+        {/* Mobile Pull-Down Menu Content (Conditionally rendered) */}
+        {isMobileMenuOpen && (
+          <div className="md:hidden absolute top-full left-0 w-full bg-[#0f172a] border-b border-white/10 shadow-2xl flex flex-col animate-fade-in">
+            <div className="flex flex-col p-6 space-y-4 text-center">
+              <a 
+                href="#services" 
+                className="text-lg font-bold py-3 border-b border-white/5 hover:text-indigo-400 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Services
+              </a>
+              <a 
+                href="#projects" 
+                className="text-lg font-bold py-3 border-b border-white/5 hover:text-indigo-400 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Work
+              </a>
+              <a 
+                href="#video" 
+                className="text-lg font-bold py-3 border-b border-white/5 hover:text-indigo-400 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Video
+              </a>
+              <a 
+                href="#team" 
+                className="text-lg font-bold py-3 border-b border-white/5 hover:text-indigo-400 transition"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Team
+              </a>
+              <a 
+                href="#contact" 
+                className="text-lg font-bold py-3 text-indigo-400"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Contact Us
+              </a>
+            </div>
+          </div>
+        )}
       </nav>
 
       {/* 2. Home */}

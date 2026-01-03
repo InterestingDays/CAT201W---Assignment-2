@@ -7,9 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'brand-dark': '#0f172a',      // 深蓝背景
-        'brand-primary': '#6366f1',   // 霓虹紫
-        'brand-secondary': '#3b82f6', // 科技蓝
+        'brand-dark': '#0f172a',      
+        'brand-primary': '#6366f1',   
+        'brand-secondary': '#3b82f6', 
       }
     },
   },
